@@ -1,0 +1,26 @@
+script(src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js")
+script.
+  $.ajax({
+    url: 'https://luck.niuguwang.com/weixin/weixinshare.ashx',
+    type: 'post',
+    data: {
+      url: encodeURIComponent(location.href.split('#')[0])
+    },
+    success: function (json) {
+      wx.config({
+        debug: false,
+        appId: 'wx8d6cb27c291ee266',
+        timestamp: json.TimeStamp,
+        nonceStr: json.Nonce,
+        signature: json.Signature,
+        jsApiList: [
+          'checkJsApi',
+          'onMenuShareAppMessage',
+          'onMenuShareTimeline',
+          'onMenuShareQQ',
+          'onMenuShareWeibo',
+          'onMenuShareQZone'
+        ]
+      });
+    }
+  });

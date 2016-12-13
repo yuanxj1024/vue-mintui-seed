@@ -1,0 +1,24 @@
+// 图标
+.smail-icons {
+  display: inline-block;
+  position: relative;
+  // 搜索
+  &.search {
+    width: 15px;
+    height: 15px;
+    background: url('../images/optional/icon_search.png') no-repeat;
+    background-size: 100% 100%;
+  }
+  &.add {
+    width: 23px;
+    height: 23px;
+    background: url('../images/optional/icon_search_add.png') no-repeat;
+    background-size: 100% 100%;
+  }
+  &.done {
+    width: 23px;
+    height: 23px;
+    background: url('../images/optional/icon_search_done.png') no-repeat;
+    background-size: 100% 100%;
+  }
+}

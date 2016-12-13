@@ -1,0 +1,41 @@
+.buy-help-info {
+  .content {
+    padding: 15px;
+    .marginTop30 {
+      margin-top: 30px;
+    }
+    .sub-title {
+      color: $color-font-main;
+    }
+    .txt {
+      color: $color-tip-gray;
+    }
+    .result {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+      thead {
+        background-color: #efeff4;
+        td {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+      tbody {
+        tr {
+          td {
+            height: 60px;
+            // line-height: 60px;
+            &:first-child {
+              text-align: left;
+            }
+            .font-gray{
+              display: inline-block;
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

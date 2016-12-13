@@ -1,0 +1,48 @@
+.footer-tel-wrap {
+    width: 100%;
+    color: #3a78f4;
+    height: 49px;
+    position: absolute!important;
+    overflow: hidden;
+    text-align: center;
+
+    .phone-wrap {
+        margin: 0 auto;
+        padding-top: 13px;
+        width: 100%;
+
+        a {
+            color: #3a78f4;
+            display: inline-block;
+            width: 100%;
+
+            .text {
+                position: relative;
+                padding-left: 28px;
+
+                .icons-tel {
+                    top: -2px;
+                    left: 0;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    span {
+        @include font-dpr(16px);
+    }
+
+    .icons-tel {
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        background: url("../images/icons_footer_tel.png") no-repeat;
+        background-size: 100%;
+        margin-right: 7.5px;
+    }
+
+    .weui_cell {
+        height: 49px;
+    }
+}

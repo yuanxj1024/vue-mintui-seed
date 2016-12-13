@@ -1,0 +1,119 @@
+.kaihu-home-wrap {
+    background: url("../images/index/bg.jpg") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .center {
+        text-align: center;
+    }
+
+    .logo {
+        padding-top: 3%;
+
+        img {
+            width: 250px;
+        }
+    }
+
+    .slogan {
+        padding-top: 5%;
+        height: 40%;
+
+        .content {
+            background: url('../images/index/mainfont.png') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        img {
+            // width: 40%;
+            height: 100%;
+        }
+    }
+
+    .txt-list {
+        // padding: 10px 3%;
+        @include flexbox;
+        @include justify-content(space-around);
+        @include flex-wrap(wrap);
+
+        .item {
+            @include flex(0,0,auto);
+
+            i {
+                display: inline-block;
+                width: 12px;
+                text-align: center;
+            }
+
+            &.txt-right {
+                text-align: right;
+            }
+
+            .icons {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                position: relative;
+                top: 3px;
+
+                &.icons-1 {
+                    background: url('../images/index/icon1.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+
+                &.icons-2 {
+                    background: url('../images/index/icon2.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+
+                &.icons-3 {
+                    background: url('../images/index/icon3.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+
+                &.icons-4 {
+                    background: url('../images/index/icon4.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
+
+    .btn-wrap {
+        padding: 0 15px;
+        position: absolute;
+        height: 49px;
+        left: 0;
+        right: 0;
+        bottom: 90px;
+    }
+
+    .telphone {
+        position: absolute;
+        bottom: 55px;
+        text-align: center;
+        width: 100%;
+
+        .icons.icons-phone {
+            width: 14px;
+            height: 14px;
+            background: url('../images/index/icon_phone.png') no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+}
+
+body {
+    overflow: hidden;
+}
+
+.nav-list {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+}

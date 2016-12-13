@@ -1,0 +1,54 @@
+.nav-bar-wrap {
+  // @include flexbox;
+  // @include justify-content(space-between);
+  text-align: center;
+  .item {
+    // @include flex(1,0,33%);
+    margin: 0 auto;
+    padding: 5px 0 0;
+    color: $color-font-light;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+    // .name{
+    //   display: inline-block;
+    // }
+    .icons {
+      width: 20px;
+      height: 20px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      // display: inline-block;;
+      &.home {
+        background-image: url("../images/index/trade.png");
+      }
+      &.choose {
+        background-image: url("../images/index/optional.png");
+      }
+      &.market {
+        background-image: url("../images/index/market.png");
+      }
+      &.trade {
+        background-image: url("../images/index/trade.png");
+      }
+    }
+    &.current {
+      color: $color-blue;
+      .icons {
+        &.home {
+          background-image: url("../images/index/trade.png");
+        }
+        &.choose {
+          background-image: url("../images/index/optional_hover.png");
+        }
+        &.market {
+          background-image: url("../images/index/market_hover.png");
+        }
+        &.trade {
+          background-image: url("../images/index/trade_hover.png");
+        }
+      }
+    }
+  }
+}

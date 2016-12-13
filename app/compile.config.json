@@ -1,0 +1,9 @@
+{
+  "random": true,
+  "script": [
+    "vue/dist/vue.min.js",
+    "vuex/dist/vuex.min.js"
+  ],
+  "style": [
+  ]
+}

@@ -1,0 +1,243 @@
+.buy-wrap {
+  height: 100%;
+  .stock-list {
+    .item {
+      padding-left: 0;
+      @include flexbox;
+      @include justify-content(space-between);
+      font-size: 14px;
+      .cell {
+        @include flex(1,0,1);
+        &:nth-child(1) {
+          width: 46%;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 27%;
+          text-align: right;
+        }
+      }
+      &.green {}
+      .red {}
+      .green {}
+      .name {
+        font-size: 4.5vw;
+      }
+      .code {
+        padding-left: 23px;
+        font-size: 10px;
+      }
+    }
+  }
+  .stock-search-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    .search-result-wrap,
+    .static-list-wrap {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      .list {
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+    .search-result-wrap {
+      top: 39px;
+      .list {
+        top: 0;
+      }
+    }
+  }
+  .stock-trading-wrap {
+    .weui_label {
+      font-size: 14px!important;
+      width: 40px;
+    }
+    .header {
+      .weui_check:checked + .weui_icon_checked:before {
+        color: $color-font-red!important;
+      }
+      .weui_icon_checked:before {
+        display: inline-block!important;
+        font-size: 16px;
+      }
+    }
+    .trading-body {
+      .tip {
+        background-color: #f7f9fc;
+        height: 35px;
+        line-height: 35px;
+        span {
+          margin-right: 15px;
+        }
+      }
+      .trade-input {
+        .weui_cell {
+          padding: 5px 15px;
+          // .weui_input {
+          //   position: relative;
+          //   top: -2px;
+          // }
+        }
+        .weui_cell_ft {
+          @include flexbox;
+        }
+        .btn {
+          border-radius: 3px;
+          border: 1px solid #c8c9cc;
+          background-color: #f7f9fc;
+          text-align: center;
+          min-width: 30px;
+          height: 35px;
+          padding: 0 3px;
+          &:nth-child(1) {
+            margin-right: 10px;
+          }
+          .math {
+            margin: 4px auto 0;
+            background-repeat: no-repeat;
+            width: 12px;
+            height: 12px;
+            background-size: 100% 100%;
+          }
+          .green {
+            background-image: url("../images/index/minus.png");
+          }
+          .red {
+            background-image: url("../images/index/add.png");
+          }
+          .txt {
+            font-size: 10px;
+          }
+        }
+      }
+      .vux-button-group {
+        padding: 5px 15px;
+        color: $color-font-red;
+        border-color: $color-font-red;
+        a {
+          background-color: #fff;
+          color: $color-font-red;
+          border-color: $color-font-red;
+          &:first-child {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+          }
+          &:last-child {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+          }
+        }
+        a:active {
+          border-color: #d2d2d2;
+          // border-width: 1px 1px 1px 0;
+          color: #999;
+          // white-space: nowrap;
+          background: #fdfdfd;
+        }
+      }
+      .sale-tip {
+        .list {
+          @include flexbox;
+          @include justify-content(space-between);
+          .item {
+            @include flex(1,0,auto);
+            margin-right: 5px;
+          }
+        }
+      }
+      .btn-trade-wrap {
+        padding: 10px 15px;
+        .buy,
+        .saleout {
+          @include flexbox;
+          @include justify-content(space-between);
+          .weui_btn {
+            @include flex(1,0,auto);
+            &:first-child {
+              margin-left: 0;
+            }
+            margin: 0 5px;
+            width: 40%;
+            height: 42px;
+          }
+        }
+      }
+    }
+    .record-wrap {
+      @include flexbox;
+      .item {
+        @include flex(1,0,auto);
+        width: 50%;
+        color: $color-font-light;
+        table {
+          width: 100%;
+          font-size: 14px;
+          padding-bottom: 20px;
+          td {
+            &:first-child {
+              padding-left: 10px;
+            }
+            &:nth-child(2){
+              text-align: right;
+            }
+            &:nth-child(3){
+              text-align: right;
+              padding-right: 10px;
+            }
+          }
+          thead {
+            background-color: #fff;
+          }
+          &.buy {
+            background-color: #fff2f2;
+            tbody {
+              tr {
+                &:first-child {
+                  background-color: #ffd9d9;
+                }
+              }
+              td {
+                height: 25px;
+                line-height: 25px;
+              }
+            }
+          }
+          &.out {
+            background-color: #f2f6ff;
+            tbody {
+              tr:first-child {
+                background-color: #b1cbff;
+              }
+              td {
+                height: 25px;
+                line-height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid{
+  @include flexbox;
+  .item{
+    @include flex(1 0 auto);
+  }
+}
+.bc-red{
+  background-color: #ef4f4f !important;
+}

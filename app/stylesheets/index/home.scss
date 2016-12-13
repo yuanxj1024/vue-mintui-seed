@@ -1,0 +1,279 @@
+.home-wrap {
+  header {
+    /* height: 185px;*/
+    background: url('../images/index/background.png') no-repeat;
+    background-size: 100% 100%;
+    padding-top: 25px;
+    .info,
+    .top {
+      margin: 0 15px;
+    }
+    .rujin {
+      padding: 5px 10px;
+      background: #eab10b;
+      border-radius: 15px;
+    }
+    .fundtypebtn {
+      display: inline;
+      top: 10px;
+      position: relative;
+    }
+    .top {
+      .select {
+        display: inline-block;
+        color: #e4e4e4;
+        // margin: 0 5px;
+        padding: 10px;
+        &:after {
+          content: ' ';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 10px solid #fff;
+          margin-left: 5px;
+        }
+      }
+    }
+    .info {
+      @include flexbox;
+      @include justify-content(space-between);
+      .money {
+        font-size: 38px;
+      }
+      .left {
+        text-align: right;
+      }
+    }
+    .list-info {
+      color: #fff;
+      // @include flexbox;
+      // @include justify-content(space-around);
+      text-align: center;
+      padding: 10px 0;
+      .item {
+        // @include flex(1,0,auto);
+        height: 100%;
+        display: inline-block;
+        width: 32%;
+        text-align: center;
+        overflow: hidden;
+      }
+    }
+  }
+  .warning {
+    background-color: #ffb000;
+    .weui_cell_ft.with_arrow:after {
+      border-color: #fff;
+    }
+  }
+  .menu {
+    @include flexbox;
+    @include justify-content(space-around);
+    padding: 15px 15px 10px;
+    /* margin: 10px 0;*/
+    margin-top: 10px;
+    color: $color-font-main;
+    .item {
+      @include flex(1,0,auto);
+      text-align: center;
+      .icon {
+        margin: 0 auto;
+        width: 44px;
+        height: 44px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        &.buy {
+          background-image: url("../images/index/icon_1.png");
+        }
+        &.trade {
+          background-image: url("../images/index/icon_2.png");
+        }
+        &.account {
+          background-image: url("../images/index/icon_3.png");
+        }
+        &.setting {
+          background-image: url("../images/index/icon_4.png");
+        }
+      }
+      .txt {
+        margin-top: 5px;
+      }
+    }
+  }
+  .content {
+    margin-bottom: 10px;
+    .stock-list {
+      margin-top: 0;
+      .weui_cell {
+        padding-left: 0;
+      }
+      .header {
+        background-color: #f7f9fc;
+        height: 40px;
+        line-height: 40px;
+        padding-top: 0;
+        padding-bottom: 0;
+        color: $color-font-main;
+        .cell {
+          &:first-child {
+            // padding-left: 20px;
+            text-align: left;
+          }
+        }
+      }
+      .item {
+        @include flexbox;
+        @include justify-content(space-between);
+        .green {
+          color: green!important;
+        }
+        /* .red {*/
+        /**/
+        /* }*/
+        .cell {
+          // @include flex(1,0, 1);
+          text-align: center;
+          &:first-child {
+            width: 38%;
+            @include flex(0,0, 38%);
+            /* background-color:blue;*/
+          }
+          &:nth-child(2),
+          &:nth-child(3) {
+            // width: 22%;
+            @include flex(1,0, 22%);
+            /* background-color:red;*/
+          }
+          &:nth-child(4) {
+            @include flex(1,0, 20%);
+            // width: 20%;
+          }
+          div {
+            text-align: right;
+            white-space: nowrap;
+            // width: 100%;
+            text-overflow: clip;
+            overflow: hidden;
+            &:first-child {
+              margin-bottom: 5px;
+            }
+          }
+          .name {
+            text-align: left;
+            font-size: 4.6vw;
+            .badge {
+              margin-right: 3px;
+            }
+          }
+          .price {
+            font-size: 12px;
+            color: $color-font-light;
+            &.p20 {
+              padding-left: 20px;
+            }
+          }
+          .red {
+            color: $color-font-red;
+          }
+          .gray {
+            color: $color-font-light;
+          }
+          .status {}
+        }
+        .txt-left {
+          text-align: left!important;
+        }
+        .txt-right {
+          text-align: right;
+        }
+      }
+      .sub-item {
+        @include flexbox;
+        @include justify-content(space-around);
+        background-color: #f0f2f5;
+        position: relative;
+        &:after {
+          position: absolute;
+          content: ' ';
+          display: inline-block;
+          width: 11px;
+          height: 11px;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          top: -5px;
+          left: 30px;
+          z-index: 10000;
+          background: #f0f2f5;
+        }
+        .sub-cell {
+          @include flex(1,0,auto);
+          text-align: center;
+          color: $color-font-light;
+          /* border-right: 1px solid $color-font-light;*/
+          /* &:last-child {*/
+          /*   border: none;*/
+          /* }*/
+          font-size: 14px;
+          &:last-child {
+            border: none!important;
+            background-image: initial;
+          }
+          .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+            &.market {
+              background-image: url("../images/index/hangqing.png");
+            }
+            &.detail {
+              background-image: url("../images/index/mingxi.png");
+            }
+            &.buy {
+              background-image: url("../images/index/mairu.png");
+            }
+            &.sale {
+              background-image: url("../images/index/maichu.png");
+            }
+            &.cancel {
+              background-image: url("../images/index/chedan.png");
+            }
+          }
+        }
+      }
+    }
+    .no-data {
+      display: block;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px 0;
+      .none {
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        display: inline;
+        &:before {
+          content: ' ';
+          width: 48px;
+          height: 48px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          margin-right: 5px;
+          background-image: url("../images/index/none.png");
+          display: inline-block;
+          position: relative;
+          top: 10px;
+        }
+      }
+    }
+    .no-data-tip:after {
+      content: '暂无持仓';
+    }
+  }
+}

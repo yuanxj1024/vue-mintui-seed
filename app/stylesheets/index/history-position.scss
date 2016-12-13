@@ -1,0 +1,78 @@
+// 历史持仓
+.history-position-wrap {
+  .body-wrap {
+    bottom: 0;
+  }
+  .list {
+    .item {
+      background-color: #fff;
+      margin-bottom: 10px;
+      width: 100%;
+      .header {
+        padding: 15px 0;
+        .name {
+          font-size: 16px;
+          // margin-right: 10px;
+        }
+      }
+      .info-wrap {
+        @include flexbox;
+        @include justify-content(space-between);
+        padding: 0 5px 15px 10px;
+        .item {
+          display: inline-block;
+          &:first-child {
+            @include flex(1,0,35%);
+            width: 35%;
+          }
+          &:last-child {
+            @include flex(1,0,65%);
+            width: 65%;
+          }
+          .num {
+            font-size: 2.0em;
+            &.size7 {
+              font-size: 1.4em;
+            }
+            &.size8,
+            &.size9 {
+              font-size: 1.5em;
+            }
+            &.size10 {
+              font-size: 1em;
+            }
+          }
+          &.right-wrap {
+            @include flexbox;
+            // @include justify-content(space-between);
+            @include flex-flow(row wrap);
+            .sub-item {
+              @include flex(1,0,50%);
+              color: $color-tip-gray;
+              display: inline-block;
+              width: 49%;
+              span {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+      .footer {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        .icon {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          position: relative;
+          top: 2px;
+          background: url("../images/index/mingxi.png") no-repeat;
+          background-size: 100%;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}

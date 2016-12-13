@@ -1,0 +1,181 @@
+.trade-record-wrap {
+    .top {}
+
+    .fillter-wrap {
+        .weui_icon_clear:before {
+            color: #6785d8;
+        }
+    }
+
+    .main {
+        position: absolute;
+        top: 85px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+
+        .data-list-wrap {
+            padding-top: 10px;
+            // @include flexbox;
+            .time {
+                text-align: center;
+                margin-bottom: 5px;
+
+                .vux-badge {
+                    background-color: #d4d4d3;
+                }
+            }
+
+            .item {
+                border: 1px solid $color-border;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 0 15px 10px;
+                background-color: #fff;
+
+                .time {
+                    text-align: left;
+                }
+
+                .name {
+                    color: $color-font-blue;
+                }
+
+                .vux-badge {
+                    border-radius: 3px;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+
+            .detail {
+                @include flexbox;
+                @include justify-content(flex-start);
+                @include flex-flow(row wrap);
+
+                .cell {
+                    @include flex(1,0,45%);
+                    display: inline-block;
+                    width: 45%;
+
+                    .tip {
+                        color: $color-tip-gray!important;
+                    }
+
+                    .price {
+                        color: $color-font-main;
+                    }
+                }
+            }
+        }
+    }
+    // 筛选
+    .fillter-date-wrap {
+        width: 90%;
+        margin: 0 auto;
+        color: $color-font-main;
+
+        .weui_cell {
+            padding: 5px 0;
+
+            .weui_cell_bd {
+                @include flex(2 0 auto);
+            }
+
+            .with_arrow {
+                @include flex(3 0 auto);
+                width: 120px;
+                display: inline-block;
+                border: 1px solid $color-border;
+                padding: 5px;
+                text-align: left;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        .weui_cells_checkbox {
+            margin-top: 10px;
+
+            .weui_icon_checked:before {
+                font-size: 20px;
+            }
+
+            label {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+
+                .checkbox-tip {
+                    position: absolute;
+                    width: 120px;
+                    top: 0;
+                    left: 30px;
+                }
+            }
+        }
+    }
+}
+// 交易详情
+
+.trade-record-detail {
+    .stock-wrap {
+        .weui_cell {
+            @include flexbox;
+            @include justify-content(space-between);
+        }
+    }
+
+    .detail {
+        display: block!important;
+
+        div {
+            margin: 5px 0;
+        }
+
+        .font-gray {
+            margin-right: 10px;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 15px;
+            height: 13px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-image: url("../images/index/exclamation.png");
+            margin-right: 5px;
+        }
+    }
+
+    .list {
+        // padding: 0 15px;
+        font-size: 14px;
+
+        .item {
+            // @include flexbox;
+            &.header {
+                background-color: #f8f9fb;
+            }
+            display: block;
+
+            .cell {
+                // @include flex(1,0,33.333%);
+                display: inline-block;
+                width: 30%!important;
+
+                &:nth-child(2) {
+                    text-align: center;
+                }
+
+                &:nth-child(3) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+// 持仓明细
+
+.position-detail-wrap {
+    .detail {
+        .padding15 {
+            padding: 0 15px;
+        }
+
+        .info-wrap {
+            height: 170px;
+
+            .name-wrap {
+                padding: 15px 0 10px;
+
+                .name {
+                    font-size: 16px;
+                }
+            }
+
+            .rate-wrap {
+                // @include flexbox;
+                // @include justify-content(space-between);
+                .info > div {
+                    display: inline-block;
+                }
+
+                .num {
+                    font-size: 13vw;
+                }
+            }
+        }
+
+        .list {
+            // @include flexbox;
+            // @include justify-content(space-around);
+            background-color: #f7f9fc;
+            padding: 10px 0;
+            height: 40px;
+            text-align: center;
+
+            .item {
+                // @include flex(0,0,25%);
+                display: inline-block;
+                width: 24%;
+                text-align: center;
+            }
+        }
+    }
+
+    .data-list-header {
+        margin-top: 10px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
+        background-color: #fff;
+        color: $color-font-main;
+    }
+
+    .body-wrap {
+        top: 280px;
+        bottom: 0;
+
+        .data-list {
+            // margin-top: 40px;
+            .item {
+                .time-wrap {
+                    padding: 5px 15px;
+                    background-color: #f7f9fc;
+                }
+
+                .info-wrap {
+                    padding: 15px;
+
+                    .info-item {
+                        // @include flexbox;
+                        // @include justify-content(space-between);
+                        span {
+                            // @include flex(1,0,50%);
+                            display: inline-block;
+                            width: 49%;
+
+                            &:nth-child(2) {
+                                text-align: right;
+                            }
+                        }
+                    }
+
+                    .icon {
+                        display: inline-block;
+                        width: 10px;
+                        height: 7px;
+                        background-size: 100% 100%;
+                        background-repeat: no-repeat;
+                        position: relative;
+                        top: -2px;
+                        margin: 0 5px;
+
+                        &.green {
+                            background-image: url("../images/index/arrow_green.png");
+                        }
+
+                        &.red {
+                            background-image: url("../images/index/arrow_red.png");
+                        }
+
+                        &.black {
+                            background-image: url("../images/index/arrow_gray.png");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
