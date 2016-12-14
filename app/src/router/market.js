@@ -5,9 +5,6 @@
 const createRouter = (VueRouter) => {
   const router = new VueRouter({
     routes: [{
-      path: '/',
-      component: require('component/home-view'),
-    }, {
       path: '/home',
       name: 'home',
       component: require('component/home-view'),
@@ -19,6 +16,9 @@ const createRouter = (VueRouter) => {
       component: {
         template: '<div>12312312</div>',
       },
+    }, {
+      path: '*',
+      component: require('component/home-view'),
     }],
   });
   router.beforeEach((to, from, next) => {
