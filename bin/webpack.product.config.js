@@ -102,7 +102,7 @@ var config = {
       use: ['file-loader']
     }, {
       test: /\.(png|jpg|gif)$/,
-      use: 'url-loader?limit=8192&name=./images/[name].[ext]',
+      use: 'url-loader?limit=8192&name=images/[name].[ext]',
       exclude: /(node_modules)/
     }]
   },

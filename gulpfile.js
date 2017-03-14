@@ -10,7 +10,7 @@ var path = {
 gulp.task('copy-to-dist', function () {
   rimraf.sync('./dist');
   return gulp.src(path.static, {
-      base: 'app'
+      base: 'app/src'
     })
     .pipe(gulp.dest('./dist'))
 });
