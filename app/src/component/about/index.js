@@ -12,10 +12,15 @@ module.exports = Vue.extend({
     console.log('about created');
   },
   mounted() {
-    this.$toast('1111');
+    // this.$toast('1111');
     console.log('about', this.userToken);
     this.$nextTick(() => {
       console.log(22);
     });
+  },
+  methods: {
+    clicked() {
+      console.log('about', this.userToken);
+    },
   },
 });

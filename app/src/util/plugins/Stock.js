@@ -2,13 +2,13 @@
  * 股票相关插件
  */
 module.exports = {
-  install: function (Vue) {
+  install(Vue) {
     Vue.mixin({
       filters: {
         /**
          * 删除符号'+'
          */
-        removePlus: function (val) {
+        removePlus(val) {
           if (typeof val !== 'undefined') {
             return val.replace('+', '');
           }
@@ -17,7 +17,7 @@ module.exports = {
         /**
          * 删除符号'-'和'+'
          */
-        removeOperator: function (value) {
+        removeOperator(value) {
           if (value && (value.indexOf('-') === 0 || value.indexOf('+') === 0)) {
             return value.slice(1);
           }
@@ -26,7 +26,7 @@ module.exports = {
         /**
          * 根据股票价格返回颜色
          */
-        stockColor: function (value) {
+        stockColor(value) {
           if (value.indexOf('+') === 0) {
             return 'red';
           } else if (value.indexOf('-') === 0) {
@@ -40,8 +40,8 @@ module.exports = {
          * H股为紫色
          * 美股为蓝色
          */
-        marketColor: function (value) {
-          var color = '';
+        marketColor(value) {
+          let color = '';
           switch (value) {
             // 沪股
             case '1':
@@ -128,8 +128,8 @@ module.exports = {
         /**
          * 根据编号返回股市缩写
          */
-        market: function (value) {
-          var market = '';
+        market(value) {
+          let market = '';
           switch (value) {
             // 沪股
             case '1':

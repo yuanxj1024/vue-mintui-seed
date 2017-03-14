@@ -3,19 +3,10 @@ var rimraf = require('rimraf');
 
 var path = {
   static: [
-    './app/images/**/*.*'
+    './app/src/images/**/*.*'
   ]
 };
 
-gulp.task('build', function () {
-  rimraf.sync('./app/www');
-  return gulp.src([
-      'app/images/**/*.*'
-    ], {
-      base: 'app/'
-    })
-    .pipe(gulp.dest('app/www/'))
-});
 gulp.task('copy-to-dist', function () {
   rimraf.sync('./dist');
   return gulp.src(path.static, {

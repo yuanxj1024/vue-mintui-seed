@@ -7,17 +7,22 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSASS = new ExtractTextPlugin('[name].css');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var getEntry = require('./getEntry');
-var rmdir = require('./rmdir');
-var alias = require('./alias');
+var alias = require('../app/alias.js');
 var compile = require('./compile');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 //  对complie配置文件进行处理
 compileConfig = compile(compileConfig);
 
 //  配置入口文件
-
 var entrys = getEntry('./app/src/*.js');
+
+entrys['vendor'] = [
+  'babel-polyfill',
+  'vue',
+  'vuex',
+  'vue-router',
+  'vue-resource'
+];
 
 //  添加插件
 var plugins = [];
@@ -26,25 +31,20 @@ var plugins = [];
 plugins.push(extractSASS);
 
 //  提取公共文件
-plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
-plugins.push(new webpack.HotModuleReplacementPlugin());
-plugins.push(new OpenBrowserPlugin({
-  url: 'http://localhost:8010'
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+  name: 'vendor',
+  filename: 'vendor.js?[hash:8]'
 }));
+plugins.push(new webpack.HotModuleReplacementPlugin());
+
 // plugins.push(new webpack.optimize.UglifyJsPlugin({
 //   compress: {
-//     warnings: false
+//     warnings: false,
 //   }
 // }));
 
-// plugins.push(new webpack.DllReferencePlugin({
-//   context: __dirname,
-//   manifest: require('../manifest.json')
-// }));
-
-
 //  处理html
-var pages = getEntry('./app/src/*.jade');
+var pages = getEntry('./app/src/*.pug');
 for (var chunkname in pages) {
   var conf = {
     filename: chunkname + '.html',
@@ -54,7 +54,7 @@ for (var chunkname in pages) {
       removeComments: true,
       collapseWhitespace: false
     },
-    chunks: ['common', chunkname],
+    chunks: ['vendor', chunkname],
     hash: true,
     complieConfig: compileConfig
   }
@@ -62,51 +62,54 @@ for (var chunkname in pages) {
 }
 
 
-
 //  配置webpack
 var config = {
   entry: entrys,
   output: {
-    path: path.resolve(containerPath, './app/www/'),
+    path: path.resolve(containerPath, './app/src/'),
     filename: '[name].js'
   },
   devtool: 'source-map',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.vue$/,
-      loader: 'vue-loader'
+      use: ['vue-loader']
     }, {
       test: /\.html$/,
-      loader: 'raw',
+      use: ['raw-loader'],
       exclude: /(node_modules)/
     }, {
       test: /\.js$/,
-      loaders: ['babel-loader', 'eslint-loader'],
+      use: ['babel-loader', 'eslint-loader'],
       exclude: /(node_modules|plugins)/
     }, {
       test: /\.scss$/,
-      loader: extractSASS.extract(['css', 'sass']),
+      use: extractSASS.extract({
+        use: ['css-loader', 'sass-loader']
+      }),
       exclude: /(node_modules|plugins)/
     }, {
       test: /\.css$/,
-      loader: extractSASS.extract(['css']),
+      use: extractSASS.extract({
+        use: ['css-loader']
+      }),
     }, {
-      test: /.jade$/,
-      loader: 'jade-loader',
+      test: /.pug$/,
+      use: ['pug-loader'],
       exclude: /(node_modules|plugins)/
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
-      loader: 'file'
+      use: ['file-loader']
     }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=8192&name=images/[name].[ext]',
+      use: 'url-loader?limit=8192&name=images/[name].[ext]',
       exclude: /(node_modules)/
     }]
   },
   plugins: plugins,
   resolve: {
     alias: alias,
-    extensions: ['', '.js', '.css', '.scss', '.jade', '.png', '.jpg']
+    extensions: ['.js', '.css', '.scss', '.pug', '.png', '.jpg']
   },
   externals: {}
 };
